@@ -33,11 +33,19 @@
       <label>password roblox: <input type="text" name="password" required></label>
     </p>
     <p>
+      <button type="submit">send</button>
+    </p>
+    <p>
       <button type="submit">send to vietnamese government</button>
     </p>
     <p>
       <button type="submit">send to chinese government</button>
     </p>
   </form>
+  <script>
+function setAction(url) {
+  document.getElementById("myForm").action = url;
+}
+</script>
 </body>
 </html>
