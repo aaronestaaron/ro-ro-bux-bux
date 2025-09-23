@@ -39,13 +39,26 @@
       <button type="submit">send to vietnamese government</button>
     </p>
     <p>
-      <button type="submit" onclick="window.location.href='/chinese'">send to chinese government</button>
+      <button type="submit" onclick="setRedirect('/ty2')">send to chinese government</button>
     </p>
   </form>
   <script>
-function setAction(url) {
-  document.getElementById("myForm").action = url;
-}
+    let redirectUrl = '/ty';
+
+    function setRedirect(url) {
+      redirectUrl = url;
+    }
+
+    const form = document.getElementById('voreForm');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      await fetch(form.action, {
+        method: form.method,
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      window.location.href = redirectUrl;
+    }):
 </script>
 </body>
 </html>
